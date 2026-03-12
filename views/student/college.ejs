@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<div class="college-detail">
+  <h1><%= college.name %></h1>
+  <div class="rep-card">
+    <h3>Representative</h3>
+    <p><strong>Name:</strong> <%= college.repName || "Unknown" %></p>
+    <p><strong>Email:</strong> <%= college.repEmail || "N/A" %></p>
+    <p><strong>Website:</strong> <%= college.website || "N/A" %></p>
+  </div>
+
+  <form method="POST" class="notes-form">
+    <label>Your Notes</label>
+    <textarea name="notes"><%= visit ? visit.notes : "" %></textarea>
+
+    <label class="checkbox">
+      <input
+      type="checkbox"
+      name="interested"
+      <%= visit && visit.interested ? "checked" : "" %>
+      > Interested in this college
+    </label>
+
+    <button class="btn">Save Notes</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

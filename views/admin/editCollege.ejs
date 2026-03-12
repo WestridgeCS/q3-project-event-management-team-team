@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<h1>Edit College</h1>
+
+<p class="subtitle">
+Update college details and contact information.
+</p>
+
+<div class="card">
+  <form method="POST" action="/admin/colleges/<%= college._id %>" enctype="multipart/form-data">
+    <label>College Name</label>
+    <input name="name" value="<%= college.name %>" required>
+
+    <label>Representative Name</label>
+    <input name="repName" value="<%= college.repName %>">
+
+    <label>Representative Email</label>
+    <input name="repEmail" value="<%= college.repEmail %>">
+
+    <label>Representative Phone</label>
+    <input name="repPhone" value="<%= college.repPhone %>">
+
+    <label>Website</label>
+    <input name="website" value="<%= college.website %>">
+
+    <label>Notes</label>
+    <textarea name="notes"><%= college.notes %></textarea>
+
+    <label>College Logo</label>
+    <% if (college.iconPath) { %>
+    <div class="logo-preview">
+      <img src="<%= college.iconPath %>" class="college-logo">
+    </div>
+    <% } %>
+
+    <input type="file" name="icon">
+
+    <button class="btn">Update College</button>
+  </form>
+
+</div>
+
+<%- include('../partials/footer') %>

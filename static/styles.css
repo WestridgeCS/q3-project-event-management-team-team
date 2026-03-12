@@ -1,0 +1,237 @@
+body{
+  font-family: system-ui, sans-serif;
+  margin:0;
+  background:#f5f6fa;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 25px;
+  background:#1e293b;
+  color:white;
+}
+
+.topbar a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  color:#666;
+}
+
+h1{
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#666;
+  margin-bottom:30px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.login-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  max-width:700px;
+}
+
+.btn{
+  margin-top:15px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.college-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:25px;
+}
+
+.college-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  transition:transform .15s;
+}
+
+.college-card:hover{
+  transform:translateY(-4px);
+}
+
+.college-logo{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+}
+
+.placeholder-logo{
+  font-size:50px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.admin-card{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  text-decoration:none;
+  color:black;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.table th,
+.table td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+}
+
+.tag{
+  background:#dbeafe;
+  padding:4px 8px;
+  border-radius:6px;
+  margin-right:4px;
+  font-size:12px;
+}
+
+form label{
+  display:block;
+  margin-top:15px;
+  font-weight:600;
+}
+
+form input,
+form textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border-radius:6px;
+  border:1px solid #ddd;
+  font-size:14px;
+}
+
+form textarea{
+  min-height:120px;
+}
+
+.logo-preview{
+  margin:15px 0;
+}
+
+.logo-preview img{
+  width:100px;
+}
+
+/* Admin SaaS Table */
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.table thead{
+  background:#f1f5f9;
+}
+
+.table th{
+  text-align:left;
+  padding:14px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#64748b;
+}
+
+.table td{
+  padding:14px;
+  border-top:1px solid #f1f5f9;
+}
+
+.table tr:hover{
+  background:#f8fafc;
+}
+
+/* Admin buttons */
+
+.btn-small{
+  padding:6px 12px;
+  border-radius:6px;
+  font-size:12px;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-edit{
+  background:#3b82f6;
+  color:white;
+}
+
+.btn-delete{
+  background:#ef4444;
+  color:white;
+}
+
+.btn-add{
+  background:#10b981;
+  color:white;
+  padding:10px 16px;
+  border-radius:6px;
+  text-decoration:none;
+}
+
+/* header row layout */
+
+.admin-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.search-input{
+  padding:8px 12px;
+  border-radius:6px;
+  border:1px solid #ddd;
+  margin-right:12px;
+  font-size:14px;
+}

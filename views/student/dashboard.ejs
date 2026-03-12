@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<h1>College Fair</h1>
+
+<p class="subtitle">
+Click a college to add notes and mark your interest.
+</p>
+
+<div class="college-grid">
+  <% colleges.forEach(college => { %>
+  <a href="/student/college/<%= college._id %>">
+    <div class="college-card">
+      <% if (college.iconPath) { %>
+      <img src="<%= college.iconPath %>" class="college-logo">
+      <% } else { %>
+
+      <div class="placeholder-logo">
+        🎓
+      </div>
+      <% } %>
+
+      <h3><%= college.name %></h3>
+    </div>
+  </a>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+
+<div class="admin-toolbar">
+  <h1>Colleges</h1>
+  <div>
+    <input
+      id="collegeSearch"
+      placeholder="Search colleges..."
+      class="search-input"
+    />
+    <a href="/admin/colleges/new" class="btn-add">
+    + Add College
+    </a>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Name</th>
+      <th>Representative</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% colleges.forEach(c => { %>
+    <tr data-name="<%= c.name.toLowerCase() %>">
+      <td>
+        <% if (c.iconPath) { %>
+        <img src="<%= c.iconPath %>" style="width:40px">
+        <% } else { %>
+        —
+        <% } %>
+      </td>
+      <td><strong><%= c.name %></strong></td>
+      <td><%= c.repName || "-" %></td>
+      <td><%= c.repEmail || "-" %></td>
+      <td>
+        <a href="/admin/colleges/<%= c._id %>/edit"
+        class="btn-small btn-edit">
+        Edit
+        </a>
+
+        <form method="POST"
+        action="/admin/colleges/<%= c._id %>/delete"
+        style="display:inline">
+          <button class="btn-small btn-delete">
+          Delete
+          </button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<script src="/script.js"></script>
+<%- include('../partials/footer') %>
