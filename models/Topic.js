@@ -1,8 +1,7 @@
 import mongoose from "mongoose"
 
-const collegeSchema = new mongoose.Schema({
+const organizerSchema = new mongoose.Schema({
   name:String,
-  repName:String,
   repEmail:String,
   repPhone:String,
   website:String,
