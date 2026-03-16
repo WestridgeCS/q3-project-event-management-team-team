@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 
-import User from "./models/User.js"
+import Student from "./models/Student.js"
 
 dotenv.config()
 
@@ -10,7 +10,7 @@ await mongoose.connect(process.env.MONGODB_URI)
 console.log("Connected to MongoDB")
 
 // Clear existing students
-await User.deleteMany({ role: "student" })
+await Student.deleteMany({ role: "student" })
 
 console.log("Old students removed")
 
@@ -100,7 +100,7 @@ const students = [
 ]
 
 
-await User.insertMany(students)
+await Student.insertMany(students)
 
 console.log("Students seeded successfully")
 

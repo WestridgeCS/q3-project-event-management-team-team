@@ -18,10 +18,10 @@ router.get('/', requireLogin, async (req, res) => {
 // View topic page
 router.get('/topic/:id', requireLogin, async (req, res) => {
   const topic = await Topic.findById(req.params.id)
-
+  
   const testimony = await Testimony.findOne({
     student: req.session.userId,
-    college: req.params.id
+    topic: req.params.id
   })
 
   res.render('student/topic', {
