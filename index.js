@@ -38,7 +38,7 @@ app.use(session({
 app.use(flash());
 
 // Attach logged-in student to res.locals
-app.use(attachStudent);
+app.use(Student);
 
 // Routes
 app.use("/",authRoutes)
