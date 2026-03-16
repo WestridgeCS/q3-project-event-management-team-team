@@ -2,7 +2,6 @@ import express from 'express'
 
 import Topic from '../models/Topic.js'
 import Testimony from '../models/Testimony.js'
-import Student from '../models/Student.js'
 
 import requireLogin from '../middleware/requireLogin.js'
 
@@ -21,8 +20,8 @@ router.get('/topic/:id', requireLogin, async (req, res) => {
   const topic = await Topic.findById(req.params.id)
 
   const testimony = await Testimony.findOne({
-    student: req.session.studentId,
-    topic: req.params.id
+    student: req.session.userId,
+    college: req.params.id
   })
 
   res.render('student/topic', {
@@ -38,13 +37,13 @@ router.post('/topic/:id', requireLogin, async (req, res) => {
   const { notes, published } = req.body
 
   let testimony = await Testimony.findOne({
-    student: req.session.studentId,
+    student: req.session.userId,
     topic: req.params.id
   })
 
   if (!testimony) {
     testimony = new Visit({
-      student: req.session.studentId,
+      student: req.session.userId,
       topic: req.params.id
     })
   }
@@ -60,7 +59,7 @@ router.post('/topic/:id', requireLogin, async (req, res) => {
 // Student profile page
 router.get('/profile', requireLogin, async (req, res) => {
   const testimonies = await Testimony
-    .find({ student: req.session.sessiontudentId })
+    .find({ student: req.session.userId })
     .populate('topic')
 
   res.render('student/profile', {
