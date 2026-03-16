@@ -1,12 +1,10 @@
 import mongoose from "mongoose"
 
-const organizerSchema = new mongoose.Schema({
-  name:String,
-  repEmail:String,
-  repPhone:String,
-  website:String,
-  notes:String,
-  iconPath:String
+const topicSchema = new mongoose.Schema({
+  title:String,
+  //optional email for head organizer (ex if a specific club/affinity is hosting the meeting or topic)
+  organizerEmail:String,
+  description:String
 })
 
-export default mongoose.model("College",collegeSchema)
+export default mongoose.model("Topic",topicSchema)
