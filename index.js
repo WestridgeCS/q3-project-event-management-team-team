@@ -8,7 +8,7 @@ import authRoutes from "./routes/authRoutes.js"
 import studentRoutes from "./routes/studentRoutes.js"
 import adminRoutes from "./routes/adminRoutes.js"
 
-import attachUser from './middleware/attachUser.js';
+import Student from './middleware/attachStudent.js';
 
 dotenv.config();
 
@@ -37,8 +37,8 @@ app.use(session({
 // Flash messages
 app.use(flash());
 
-// Attach logged-in user to res.locals
-app.use(attachUser);
+// Attach logged-in student to res.locals
+app.use(attachStudent);
 
 // Routes
 app.use("/",authRoutes)
