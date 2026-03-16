@@ -1,68 +1,69 @@
 import express from 'express'
 
-import College from '../models/College.js'
-import Visit from '../models/Visit.js'
+import Topic from '../models/Topic.js'
+import Testimony from '../models/Testimony.js'
 
 import requireLogin from '../middleware/requireLogin.js'
+
 
 const router = express.Router()
 
 
 // Student dashboard
 router.get('/', requireLogin, async (req, res) => {
-  const colleges = await College.find()
-  res.render('student/dashboard', { colleges })
+  const topics = await Topic.find()
+  res.render('student/dashboard', { topics })
 })
 
-// View college page
-router.get('/college/:id', requireLogin, async (req, res) => {
-  const college = await College.findById(req.params.id)
+// View topic page
+router.get('/topic/:id', requireLogin, async (req, res) => {
+  const topic = await Topic.findById(req.params.id)
 
-  const visit = await Visit.findOne({
+  const testimony = await Testimony.findOne({
     student: req.session.userId,
     college: req.params.id
   })
 
-  res.render('student/college', {
-    college,
-    visit
+  res.render('student/topic', {
+    topic,
+    testimony
   })
 
 })
 
 
 // Save visit notes
-router.post('/college/:id', requireLogin, async (req, res) => {
-  const { notes, interested } = req.body
+router.post('/topic/:id', requireLogin, async (req, res) => {
+  const { notes, published } = req.body
 
-  let visit = await Visit.findOne({
+  let testimony = await Testimony.findOne({
     student: req.session.userId,
-    college: req.params.id
+    topic: req.params.id
   })
 
-  if (!visit) {
-    visit = new Visit({
+  if (!testimony) {
+    testimony = new Visit({
       student: req.session.userId,
-      college: req.params.id
+      topic: req.params.id
     })
   }
 
-  visit.notes = notes
-  visit.interested = interested === 'on'
+  testimony.notes = notes
+  testimony.published = published === 'off'
 
-  await visit.save()
+  await testimony.save()
 
   res.redirect('/student')
 })
 
 // Student profile page
 router.get('/profile', requireLogin, async (req, res) => {
-  const visits = await Visit
+  const testimonies = await Testimony
     .find({ student: req.session.userId })
-    .populate('college')
+    .populate('topic')
 
   res.render('student/profile', {
-    visits
+    testimonies
   })
 })
 
