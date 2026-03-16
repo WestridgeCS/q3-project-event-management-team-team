@@ -1,16 +1,16 @@
 import mongoose from "mongoose"
 
-const visitSchema = new mongoose.Schema({
+const testimonySchema = new mongoose.Schema({
   student:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"User"
+    ref:"Student"
   },
-  college:{
+  topic:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"College"
+    ref:"Topic"
   },
   notes:String,
-  interested:Boolean
+  published:Boolean
 })
 
-export default mongoose.model("Visit",visitSchema)
+export default mongoose.model("Testimony",testimonySchema)
