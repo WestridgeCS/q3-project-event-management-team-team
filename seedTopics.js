@@ -14,32 +14,32 @@ console.log("Old topics cleared")
 
 
 const topics = [
+  {
+    title: "Justice",
+    organizerEmail: "studentVoices@westridge.org",
+    description:
+      "How do you define justice? How is justice implemented on Westridge campus? How can we improve justice in our community?",
+  },
 
-{
-title: "Justice",
-organizerEmail: "studentVoices@westridge.org",
-description: "Large public research university in Los Angeles known for strong programs across many fields."
-},
+  {
+    title: "Equity",
+    organizerEmail: "studentVoices@westridge.org",
+    description:
+      "How do you define equity? How can we improve equity in our community? How well is equity enforced on Westridge campus?",
+  },
 
-{
-title: "Equity",
-organizerEmail: "studentVoices@westridge.org",
-description: "Large public research university in Los Angeles known for strong programs across many fields."
-},
+  {
+    title: "Diversity",
+    organizerEmail: "studentVoices@westridge.org",
+    description: "How can we improve diversity in our community?",
+  },
 
-{
-title: "Diversity",
-organizerEmail: "studentVoices@westridge.org",
-description: "Large public research university in Los Angeles known for strong programs across many fields."
-},
-
-{
-title: "Inclusion",
-organizerEmail: "studentVoices@westridge.org",
-description: "Large public research university in Los Angeles known for strong programs across many fields."
-}
-
-]
+  {
+    title: "Inclusion",
+    organizerEmail: "studentVoices@westridge.org",
+    description: "How can we improve inclusion  in our community?",
+  },
+];
 
 
 await Topic.insertMany(topics)
