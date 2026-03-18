@@ -43,10 +43,10 @@ router.post('/topic/:id', requireLogin, async (req, res) => {
   })
 
   if (!testimony) {
-    testimony = new Visit({
+    testimony = new Testimony({
       student: req.session.userId,
-      topic: req.params.id
-    })
+      topic: req.params.id,
+    });
   }
 
   testimony.notes = notes
