@@ -4,11 +4,11 @@
   <h1>Colleges</h1>
   <div>
     <input
-      id="collegeSearch"
-      placeholder="Search colleges..."
+      id="topicSearch"
+      placeholder="Search topics..."
       class="search-input"
     />
-    <a href="/admin/colleges/new" class="btn-add">
+    <a href="/admin/topics/new" class="btn-add">
     + Add College
     </a>
   </div>
@@ -25,7 +25,7 @@
     </tr>
   </thead>
   <tbody>
-    <% colleges.forEach(c => { %>
+    <% topics.forEach(c => { %>
     <tr data-name="<%= c.name.toLowerCase() %>">
       <td>
         <% if (c.iconPath) { %>
@@ -38,13 +38,13 @@
       <td><%= c.repName || "-" %></td>
       <td><%= c.repEmail || "-" %></td>
       <td>
-        <a href="/admin/colleges/<%= c._id %>/edit"
+        <a href="/admin/topics/<%= c._id %>/edit"
         class="btn-small btn-edit">
         Edit
         </a>
 
         <form method="POST"
-        action="/admin/colleges/<%= c._id %>/delete"
+        action="/admin/topics/<%= c._id %>/delete"
         style="display:inline">
           <button class="btn-small btn-delete">
           Delete
