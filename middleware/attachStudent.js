@@ -11,12 +11,10 @@ export default async function attachStudent(req, res, next) {
   }
 
   try {
+    const student = await Student.findById(req.session.studentId);
 
-    const student = await Student.findById(req.session.studentId)
-
-    res.locals.currentStudent = student
-    res.locals.role = req.session.role
-
+    res.locals.currentStudent = student;
+    res.locals.role = req.session.role;
   } catch (err) {
     console.error(err)
   }

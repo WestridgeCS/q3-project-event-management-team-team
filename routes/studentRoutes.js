@@ -10,10 +10,11 @@ const router = express.Router()
 
 
 // Student dashboard
-router.get('/', requireLogin, async (req, res) => {
-  const topics = await Topic.find()
-  res.render('student/dashboard', { topics })
-})
+router.get("/", requireLogin, async (req, res) => {
+  console.log("student routes login");
+  const topics = await Topic.find();
+  res.render("student/dashboard", { topics });
+});
 
 // View topic page
 router.get('/topic/:id', requireLogin, async (req, res) => {

@@ -15,24 +15,24 @@ router.get('/login', (req, res) => {
 })
 
 // Student login
-router.post('/login/student', async (req, res) => {
-  const { name, studentId } = req.body
-
+router.post("/login/student", async (req, res) => {
+  const { name, studentId } = req.body;
+  console.log(req.body);
   const student = await Student.findOne({
     name,
     studentId,
-    role: 'student'
-  })
-
+    role: "student",
+  });
+  console.log(student);
   if (!student) {
-    return res.redirect('/login')
+    return res.redirect("/login");
   }
 
-  req.session.studentId = student._id
-  req.session.role = 'student'
-
-  res.redirect('/student')
-})
+  req.session.studentId = student._id;
+  req.session.role = "student";
+  console.log(req.session);
+  res.redirect("/student");
+});
 
 // Admin login
 router.post('/login/admin', async (req, res) => {
