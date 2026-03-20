@@ -27,7 +27,7 @@ router.get('/topics', requireLogin, requireAdmin, async (req, res) => {
 router.get('/topics/:id', requireLogin, requireAdmin, async (req,res) =>{
   const testimonies = await Testimony.find()
 
-  res.render('admin/topics/:id', { topics, testimonies })
+  res.render('admin/topics/:id', { topic, testimonies })
 })
 
 // Students dashboard

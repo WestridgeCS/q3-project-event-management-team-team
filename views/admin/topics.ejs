@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="admin-toolbar">
-  <h1>Colleges</h1>
+  <h1>Topics</h1>
   <div>
     <input
       id="topicSearch"
@@ -9,7 +9,7 @@
       class="search-input"
     />
     <a href="/admin/topics/new" class="btn-add">
-    + Add College
+    + Add Topic
     </a>
   </div>
 </div>
@@ -26,7 +26,7 @@
   </thead>
   <tbody>
     <% topics.forEach(c => { %>
-    <tr data-name="<%= c.name.toLowerCase() %>">
+    <tr data-name="<%= (c.name || '').toLowerCase() %>">
       <td>
         <% if (c.iconPath) { %>
         <img src="<%= c.iconPath %>" style="width:40px">
