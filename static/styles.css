@@ -3,6 +3,9 @@ body{
   margin:0;
   background:#f5f6fa;
 }
+a{
+  text-decoration: none;
+}
 
 .container{
   max-width:1100px;
@@ -15,7 +18,7 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:15px 25px;
-  background:#1e293b;
+  background:rgb(71,119,60);
   color:white;
 }
 
@@ -24,11 +27,14 @@ body{
   margin-left:20px;
   text-decoration:none;
 }
+.topbar a:hover {
+  color: rgb(143,186,102);
+}
 
 .footer{
   text-align:center;
   padding:30px;
-  color:#666;
+  color:#666666;
 }
 
 h1{
@@ -56,12 +62,15 @@ h1{
 
 .btn{
   margin-top:15px;
-  background:#2563eb;
+  background:rgb(139,206,111);
   color:white;
   border:none;
   padding:10px 20px;
   border-radius:6px;
   cursor:pointer;
+}
+.btn:hover{
+  background:rgb(104, 155, 82);
 }
 
 .college-grid{
@@ -77,10 +86,13 @@ h1{
   text-align:center;
   box-shadow:0 3px 10px rgba(0,0,0,0.1);
   transition:transform .15s;
+  color: black;
 }
+
 
 .college-card:hover{
   transform:translateY(-4px);
+  color: rgb(71,119,60);
 }
 
 .college-logo{

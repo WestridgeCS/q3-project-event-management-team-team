@@ -8,13 +8,13 @@
 <body>
 <header class="topbar">
   <div class="logo">
-    🎓 Campus Event Manager
+    Campus Event Manager
   </div>
   <nav>
-    <% if (currentUser) { %>
+    <% if (currentStudent) { %>
       <% if (role === "student") { %>
         <a href="/student">Dashboard</a>
-        <a href="/student/profile">My Colleges</a>
+        <a href="/student/profile">My Testimonies</a>
       <% } %>
 
       <% if (role === "admin") { %>

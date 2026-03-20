@@ -1,24 +1,25 @@
 <%- include('../partials/header') %>
-<h1>College Fair</h1>
+<h1>Town Meeting</h1>
 
 <p class="subtitle">
-Click a college to add notes and mark your interest.
+Click a topic to add testimony!
 </p>
 
 <div class="college-grid">
-  <% colleges.forEach(college => { %>
-  <a href="/student/college/<%= college._id %>">
+  <% topics.forEach(topic => { %>
+  <a href="/student/topic/<%= topic._id %>">
     <div class="college-card">
-      <% if (college.iconPath) { %>
-      <img src="<%= college.iconPath %>" class="college-logo">
+      <% if (topic.iconPath) { %>npm
+      <img src="<%= topic.iconPath %>" class="college-logo">
       <% } else { %>
 
       <div class="placeholder-logo">
-        🎓
+        🌱
       </div>
       <% } %>
 
-      <h3><%= college.name %></h3>
+      <h3><%= topic.title %></h3>
+      <p><%= topic.description %></p>
     </div>
   </a>
   <% }) %>

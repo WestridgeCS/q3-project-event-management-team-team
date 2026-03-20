@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<div class="topic-detail">
+  <h1><%= topic.title %></h1>
+  <div class="rep-card">
+    <h3>Organizers</h3>
+    <p><strong>Email:</strong> <%= topic.organizerEmail || "N/A" %></p>
+    <p><strong>Description: </strong><%= topic.description%></p>
+  </div>
+  <div class="testimonies">
+    <% testimony.forEach(testimony => { %>
+    <div class="testimony-card">
+      <% console.log(testimony) %>
+      <p><%= testimony.notes %></p>
+    </div>
+  <% }) %>
+  </div>
+
+  <form method="POST" class="testimony-form">
+    <label>Your Testimony</label>
+    <textarea name="testimony"><%= testimony ? testimony.notes : "" %></textarea>
+
+    <button class="btn">Save Testimony</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

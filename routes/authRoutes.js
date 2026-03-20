@@ -1,6 +1,6 @@
 import express from 'express'
 import bcrypt from 'bcrypt'
-import User from '../models/User.js'
+import Student from '../models/Student.js'
 
 const router = express.Router()
 
@@ -15,45 +15,45 @@ router.get('/login', (req, res) => {
 })
 
 // Student login
-router.post('/login/student', async (req, res) => {
-  const { name, studentId } = req.body
-
-  const user = await User.findOne({
+router.post("/login/student", async (req, res) => {
+  const { name, studentId } = req.body;
+  console.log(req.body);
+  const student = await Student.findOne({
     name,
     studentId,
-    role: 'student'
-  })
-
-  if (!user) {
-    return res.redirect('/login')
+    role: "student",
+  });
+  console.log(student);
+  if (!student) {
+    return res.redirect("/login");
   }
 
-  req.session.userId = user._id
-  req.session.role = 'student'
-
-  res.redirect('/student')
-})
+  req.session.studentId = student._id;
+  req.session.role = "student";
+  console.log(req.session);
+  res.redirect("/student");
+});
 
 // Admin login
 router.post('/login/admin', async (req, res) => {
   const { email, password } = req.body
 
-  const user = await User.findOne({
+  const student = await Student.findOne({
     email,
     role: 'admin'
   })
 
-  if (!user) {
+  if (!student) {
     return res.redirect('/login')
   }
 
-  const valid = await bcrypt.compare(password, user.passwordHash)
+  const valid = await bcrypt.compare(password, student.passwordHash)
 
   if (!valid) {
     return res.redirect('/login')
   }
 
-  req.session.userId = user._id
+  req.session.studentId = student._id
   req.session.role = 'admin'
 
   res.redirect('/admin')
@@ -86,7 +86,7 @@ router.post('/admin/register', async (req, res) => {
 
   const { name, email, password } = req.body
 
-  const existing = await User.findOne({ email })
+  const existing = await Student.findOne({ email })
 
   if (existing) {
     return res.send("Admin already exists with that email.")
@@ -94,7 +94,7 @@ router.post('/admin/register', async (req, res) => {
 
   const hash = await bcrypt.hash(password, 10)
 
-  const admin = new User({
+  const admin = new Student({
     name,
     email,
     passwordHash: hash,
