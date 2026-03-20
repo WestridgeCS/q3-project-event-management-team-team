@@ -19,23 +19,24 @@ router.get("/", requireLogin, async (req, res) => {
 // View topic page
 router.get('/topic/:id', requireLogin, async (req, res) => {
   const topic = await Topic.findById(req.params.id)
-  
-  const testimony = await Testimony.findOne({
-    student: req.session.userId,
-    topic: req.params.id
-  })
+  const testimony = await Testimony.find();
+  // const testimony = await Testimony.findOne({
+  //   student: req.session.studentId,
+  //   topic: req.params.topic,
+  //   notes: req.params.notes
+  // })
 
   res.render('student/topic', {
     topic,
     testimony
-  })
+    })
 
 })
 
 
 // Save visit notes
 router.post('/topic/:id', requireLogin, async (req, res) => {
-  const { notes, published } = req.body
+  const { notes } = req.body
 
   let testimony = await Testimony.findOne({
     student: req.session.userId,
@@ -50,7 +51,6 @@ router.post('/topic/:id', requireLogin, async (req, res) => {
   }
 
   testimony.notes = notes
-  testimony.published = published === 'off'
 
   await testimony.save()
 
