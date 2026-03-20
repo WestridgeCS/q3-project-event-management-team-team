@@ -27,6 +27,9 @@ a{
   margin-left:20px;
   text-decoration:none;
 }
+.topbar a:hover {
+  color: rgb(143,186,102);
+}
 
 .footer{
   text-align:center;
@@ -66,6 +69,9 @@ h1{
   border-radius:6px;
   cursor:pointer;
 }
+.btn:hover{
+  background:rgb(104, 155, 82);
+}
 
 .college-grid{
   display:grid;
@@ -80,10 +86,13 @@ h1{
   text-align:center;
   box-shadow:0 3px 10px rgba(0,0,0,0.1);
   transition:transform .15s;
+  color: black;
 }
+
 
 .college-card:hover{
   transform:translateY(-4px);
+  color: rgb(71,119,60);
 }
 
 .college-logo{
